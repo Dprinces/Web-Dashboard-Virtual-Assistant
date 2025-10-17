@@ -1,0 +1,284 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+  line-height: 1.6;
+  color: #1f2937;
+  background-color: #f9fafb;
+}
+
+/* CSS Variables for consistent theming */
+:root {
+  --background: 249 250 251;
+  --foreground: 31 41 55;
+  --card: 255 255 255;
+  --card-foreground: 31 41 55;
+  --popover: 255 255 255;
+  --popover-foreground: 31 41 55;
+  --primary: 14 165 233;
+  --primary-foreground: 255 255 255;
+  --secondary: 248 250 252;
+  --secondary-foreground: 51 65 85;
+  --muted: 241 245 249;
+  --muted-foreground: 100 116 139;
+  --accent: 241 245 249;
+  --accent-foreground: 51 65 85;
+  --destructive: 239 68 68;
+  --destructive-foreground: 255 255 255;
+  --success: 34 197 94;
+  --success-foreground: 255 255 255;
+  --warning: 245 158 11;
+  --warning-foreground: 255 255 255;
+  --border: 229 231 235;
+  --input: 229 231 235;
+  --ring: 14 165 233;
+  --radius: 0.75rem;
+  --shadow-color: 0 0 0;
+}
+
+.dark {
+  --background: 3 7 18;
+  --foreground: 248 250 252;
+  --card: 15 23 42;
+  --card-foreground: 248 250 252;
+  --popover: 15 23 42;
+  --popover-foreground: 248 250 252;
+  --primary: 56 189 248;
+  --primary-foreground: 15 23 42;
+  --secondary: 30 41 59;
+  --secondary-foreground: 248 250 252;
+  --muted: 30 41 59;
+  --muted-foreground: 148 163 184;
+  --accent: 30 41 59;
+  --accent-foreground: 248 250 252;
+  --destructive: 220 38 38;
+  --destructive-foreground: 255 255 255;
+  --success: 34 197 94;
+  --success-foreground: 255 255 255;
+  --warning: 245 158 11;
+  --warning-foreground: 15 23 42;
+  --border: 51 65 85;
+  --input: 51 65 85;
+  --ring: 56 189 248;
+  --radius: 0.75rem;
+  --shadow-color: 0 0 0;
+}
+
+/* Professional utility classes */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, rgb(14, 165, 233), rgb(59, 130, 246));
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, rgb(99, 102, 241), rgb(139, 92, 246));
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, rgb(14, 165, 233), rgb(59, 130, 246));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shadow-soft {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-medium {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-large {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.border-gradient {
+  border: 1px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(135deg, rgb(14, 165, 233), rgb(59, 130, 246)) border-box;
+}
+
+/* Focus states */
+.focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(14 165 233 / 0.5);
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-colors {
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Professional button styles */
+.btn-primary {
+  background-color: rgb(2 132 199);
+  color: white;
+  font-weight: 500;
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.btn-primary:hover {
+  background-color: rgb(3 105 161);
+  box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(14 165 233 / 0.5);
+}
+
+.dark .btn-primary {
+  background-color: rgb(14 165 233);
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.3), 0 10px 20px -2px rgba(0, 0, 0, 0.2);
+}
+
+.dark .btn-primary:hover {
+  background-color: rgb(2 132 199);
+  box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+  background-color: rgb(243 244 246);
+  color: rgb(17 24 39);
+  font-weight: 500;
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.btn-secondary:hover {
+  background-color: rgb(229 231 235);
+  box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .btn-secondary {
+  background-color: rgb(51 65 85);
+  color: rgb(248 250 252);
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.3), 0 10px 20px -2px rgba(0, 0, 0, 0.2);
+}
+
+.dark .btn-secondary:hover {
+  background-color: rgb(71 85 105);
+  box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outline {
+  border: 1px solid rgb(209 213 219);
+  color: rgb(55 65 81);
+  font-weight: 500;
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: white;
+}
+
+.btn-outline:hover {
+  border-color: rgb(156 163 175);
+  color: rgb(17 24 39);
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.dark .btn-outline {
+  border-color: rgb(71 85 105);
+  color: rgb(203 213 225);
+  background-color: rgb(15 23 42);
+}
+
+.dark .btn-outline:hover {
+  border-color: rgb(100 116 139);
+  color: rgb(248 250 252);
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.3), 0 10px 20px -2px rgba(0, 0, 0, 0.2);
+}
+
+/* Professional input styles */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgb(209 213 219);
+  border-radius: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: white;
+  color: rgb(17 24 39);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: rgb(14 165 233);
+  box-shadow: 0 0 0 2px rgb(14 165 233 / 0.2);
+}
+
+.input-field::placeholder {
+  color: rgb(107 114 128);
+}
+
+.dark .input-field {
+  background-color: rgb(30 41 59);
+  border-color: rgb(71 85 105);
+  color: rgb(248 250 252);
+}
+
+.dark .input-field:focus {
+  border-color: rgb(14 165 233);
+  box-shadow: 0 0 0 2px rgb(14 165 233 / 0.3);
+}
+
+.dark .input-field::placeholder {
+  color: rgb(148 163 184);
+}
+
+/* Card styles */
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgb(229 231 235);
+  padding: 1.5rem;
+}
+
+.dark .card {
+  background-color: rgb(15 23 42);
+  border-color: rgb(51 65 85);
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.3), 0 10px 20px -2px rgba(0, 0, 0, 0.2);
+}
+
+.card-hover {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
